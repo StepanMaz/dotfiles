@@ -32,3 +32,7 @@ alias grs='git reset --soft'
 alias gd='git diff'
 alias gdc='git diff --cached'
 
+alias python="python3"
+
+alias vim="nvim"
+alias vi="nvim"
