@@ -14,6 +14,30 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
     {
+        'nvimdev/dashboard-nvim',
+        event = 'VimEnter',
+        config = function()
+            require("config.dashboard")
+        end,
+        dependencies = { {'nvim-tree/nvim-web-devicons'}}
+    },
+    {
+        'nvim-lualine/lualine.nvim', 
+        dependencies = { 'nvim-tree/nvim-web-devicons' },
+        config = function()
+            require("config.lualine")
+        end
+    },
+    {
+        'romgrk/barbar.nvim',
+        dependencies = {
+          'lewis6991/gitsigns.nvim', -- OPTIONAL: for git status
+          'nvim-tree/nvim-web-devicons', -- OPTIONAL: for file icons
+        },
+        init = function() vim.g.barbar_auto_setup = false end,
+        opts = { },
+    },
+    {
         "zaldih/themery.nvim",
         dependencies = { 
             "folke/tokyonight.nvim",
@@ -24,6 +48,7 @@ require("lazy").setup({
             "bluz71/vim-nightfly-colors",
             "Mofiqul/dracula.nvim",
             "dasupradyumna/midnight.nvim",
+            "bluz71/vim-moonfly-colors",
         },
         config = function ()
             require("config.themery")

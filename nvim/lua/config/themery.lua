@@ -11,6 +11,7 @@ require("themery").setup({
         "nightfly",
         "dracula",
         "midnight",
+        "moonfly",
     },
     livePreviw = true,
 })
