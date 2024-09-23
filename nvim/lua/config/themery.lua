@@ -1,5 +1,5 @@
 require("themery").setup({
-    themes = { 
+    themes = {
         "tokyonight-night",
         "tokyonight-storm",
         "tokyonight-day",

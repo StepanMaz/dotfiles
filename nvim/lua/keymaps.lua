@@ -9,10 +9,10 @@ map('i', 'jk', '<Esc>', { noremap = true, silent = true })
 map('n', '<Leader>e', ':NvimTreeToggle<CR>', { noremap = true, silent = true })
 
 -- Use Ctrl+h/j/k/l to navigate between split windows
-map('n', '<C-h>', '<C-w>h', { noremap = true, silent = true })
-map('n', '<C-j>', '<C-w>j', { noremap = true, silent = true })
-map('n', '<C-k>', '<C-w>k', { noremap = true, silent = true })
-map('n', '<C-l>', '<C-w>l', { noremap = true, silent = true })
+map('n', '<leader>h', '<C-w>h', { noremap = true, silent = true })
+map('n', '<leader>j', '<C-w>j', { noremap = true, silent = true })
+map('n', '<leader>k', '<C-w>k', { noremap = true, silent = true })
+map('n', '<leader>l', '<C-w>l', { noremap = true, silent = true })
 
 -- Saving buffer
 map('n', '<Leader>w', ':w<CR>', { noremap = true, silent = true })
@@ -30,8 +30,8 @@ map("n", "<leader>tt", ":Themery<CR>", { noremap = true, silent = true })
 
 -- Tabs setup
 -- moving between tabs
-map('n', '<leader>h', ":BufferPrevious<CR>", { noremap = true, silent = true })
-map('n', '<leader>l', ":BufferNext<CR>", { noremap = true, silent = true })
+map('n', '<leader><Tab>', ":BufferPrevious<CR>", { noremap = true, silent = true })
+map('n', '<leader><S-Tab>', ":BufferNext<CR>", { noremap = true, silent = true })
 -- reordering tabs
 map('n', '<leader>H', ":BufferMovePrevious<CR>", { noremap = true, silent = true })
 map('n', '<leader>L', ":BufferMoveNext<CR>", { noremap = true, silent = true })
@@ -45,3 +45,18 @@ vim.api.nvim_set_keymap('i', '<C-h>', '<Left>', { noremap = true, silent = true 
 vim.api.nvim_set_keymap('i', '<C-j>', '<Down>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('i', '<C-k>', '<Up>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('i', '<C-l>', '<Right>', { noremap = true, silent = true })
+
+-- load the session for the current directory
+-- vim.keymap.set("n", "<leader>qs", function() require("persistence").load() end)
+
+-- select a session to load
+-- vim.keymap.set("n", "<leader>qS", function() require("persistence").select() end)
+
+-- load the last session
+-- vim.keymap.set("n", "<leader>ql", function() require("persistence").load({ last = true }) end)
+
+-- stop Persistence => session won't be saved on exit
+-- vim.keymap.set("n", "<leader>qd", function() require("persistence").stop() end)
+
+vim.api.nvim_set_keymap("n", "<leader>p", "<cmd>lua vim.lsp.buf.format({ async = true })<CR>",
+    { noremap = true, silent = true })
