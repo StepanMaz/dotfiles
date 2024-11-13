@@ -1,5 +1,5 @@
 require 'nvim-treesitter.configs'.setup {
-    ensure_installed = { "c_sharp", "lua", "javascript" }, -- Add other languages you need
+    ensure_installed = { "c_sharp", "lua", "javascript", "bash", "sql" }, -- Add other languages you need
     sync_install = false,                                -- Install languages asynchronously
     auto_install = true,                                 -- Automatically install missing parsers
 

@@ -13,6 +13,7 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
+    "jmederosalvarado/roslyn.nvim",
     {
         "folke/neodev.nvim", -- Better Lua development experience
         config = function()

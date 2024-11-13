@@ -19,12 +19,9 @@ lspconfig.pyright.setup({
     filetypes = { "python" },
 })
 
--- C# LSP Configuration
-lspconfig.omnisharp.setup({
-    cmd = { "omnisharp" },
-    filetypes = { "cs", "vb" }, -- C# and Visual Basic support
-    root_dir = lspconfig.util.root_pattern(".git", "omnisharp.json", "global.json", "*.sln"),
-    capabilities = require("cmp_nvim_lsp").default_capabilities(),
+require("roslyn").setup({
+    dotnet_cmd = "dotnet",              -- this is the default
+    roslyn_version = "4.8.0-3.23475.7", -- this is the default
     on_attach = function(client, bufnr)
         -- Keybindings for LSP actions
         local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
@@ -33,8 +30,9 @@ lspconfig.omnisharp.setup({
         -- Example key mappings
         buf_set_keymap("n", "gd", "<Cmd>lua vim.lsp.buf.definition()<CR>", opts)
         buf_set_keymap("n", "K", "<Cmd>lua vim.lsp.buf.hover()<CR>", opts)
-        buf_set_keymap("n", "<leader>rn", "<Cmd>lua vim.lsp.buf.rename()<CR>", opts)
+        buf_set_keymap("n", "<leader>m", "<Cmd>lua vim.lsp.buf.rename()<CR>", opts)
     end,
+    capabilities = require("cmp_nvim_lsp").default_capabilities(),
 })
 
 lspconfig.lua_ls.setup({
