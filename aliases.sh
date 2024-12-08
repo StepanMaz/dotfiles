@@ -36,3 +36,7 @@ alias python="python3"
 
 alias vim="nvim"
 alias vi="nvim"
+
+function mkd {
+    mkdir -p -- "$1" && cd -P -- "$1"
+}
