@@ -4,6 +4,7 @@ local map = vim.api.nvim_set_keymap
 
 -- Normal mode using 'jk' combination
 map('i', 'jk', '<Esc>', { noremap = true, silent = true })
+map('t', 'jk', '<C-\\><C-n>', { noremap = true, silent = true })
 
 -- Open NvimTree
 map('n', '<Leader>e', ':NvimTreeToggle<CR>', { noremap = true, silent = true })
